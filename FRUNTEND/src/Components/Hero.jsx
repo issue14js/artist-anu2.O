@@ -13,7 +13,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary text-orange-800 mb-6 leading-tight">
-            Bridging Commerce <span className="text-accent">&</span> Creativity
+            Art's & Craft's <span className="text-accent"></span> Activites
           </h1>
           <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             State-level award-winning artist blending academic discipline with traditional and modern art forms.
