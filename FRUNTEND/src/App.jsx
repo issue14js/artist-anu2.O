@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Gallery from './components/Gallery';
+import Gallery from './Components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 import Profile from './Components/Profile';
 import AdminPostUpload from './Components/AdminPostUpload';
 import AdminMessages from './Components/AdminMessages';
@@ -27,6 +27,7 @@ function App() {
                 <About />
                 <Gallery />
                 <Contact />
+                <Footer/>
                 
               </>
             } />
@@ -40,7 +41,7 @@ function App() {
             <Route path="/admin/messages" element={<AdminMessages />} />
           </Routes>
 
-          <Footer />
+          
           <AdminPostUpload />
         </div>
       </AuthProvider>

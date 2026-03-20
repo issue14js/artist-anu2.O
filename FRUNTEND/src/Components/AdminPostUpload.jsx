@@ -112,7 +112,7 @@ const AdminPostUpload = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 bg-transparent right-6 z-50">
       {/* Floating Button */}
       {!showForm && (
         <button

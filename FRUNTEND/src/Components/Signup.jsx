@@ -47,8 +47,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 pt-24 px-4">
-      <div className="max-w-md mx-auto bg-slate-800 rounded-lg shadow-lg p-8">
+    <div className="min-h-screen  from-slate-900 to-slate-800 pt-24 px-4">
+      <div className="max-w-md mx-auto rounded-lg shadow-lg p-8">
         <h2 className="text-3xl font-bold text-white mb-6 text-center">Sign Up</h2>
         
         {errors.submit && (
@@ -65,7 +65,7 @@ const Signup = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:border-accent ${
+              className={`w-full px-4 py-2 border rounded-lg text-white focus:outline-none focus:border-accent ${
                 errors.name ? 'border-red-500' : 'border-gray-600'
               }`}
               placeholder="John Doe"
@@ -80,7 +80,7 @@ const Signup = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:border-accent ${
+              className={`w-full px-4 py-2 border rounded-lg text-white focus:outline-none focus:border-accent ${
                 errors.email ? 'border-red-500' : 'border-gray-600'
               }`}
               placeholder="you@example.com"
@@ -95,7 +95,7 @@ const Signup = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className={`w-full px-4 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:border-accent ${
+              className={`w-full px-4 py-2 border rounded-lg text-white focus:outline-none focus:border-accent ${
                 errors.password ? 'border-red-500' : 'border-gray-600'
               }`}
               placeholder="••••••••"
@@ -110,7 +110,7 @@ const Signup = () => {
               name="passwordConfirm"
               value={formData.passwordConfirm}
               onChange={handleChange}
-              className={`w-full px-4 py-2 bg-slate-700 border rounded-lg text-white focus:outline-none focus:border-accent ${
+              className={`w-full px-4 py-2 border rounded-lg text-white focus:outline-none focus:border-accent ${
                 errors.passwordConfirm ? 'border-red-500' : 'border-gray-600'
               }`}
               placeholder="••••••••"
@@ -121,7 +121,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-accent hover:bg-accent/80 disabled:bg-gray-600 text-white font-bold py-2 rounded-lg transition-colors mt-6"
+            className="w-full bg-accent hover:bg-accent/80 bg-emerald-700 disabled:bg-gray-600 text-white font-bold py-2 rounded-lg transition-colors mt-6"
           >
             {loading ? 'Creating account...' : 'Sign Up'}
           </button>

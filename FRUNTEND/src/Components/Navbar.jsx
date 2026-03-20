@@ -21,8 +21,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-2xl text-white font-serif font-bold text-primary">
-          <Palette className="text-accent" />
-          <span className='text-white'>ArtistAnnu</span>
+          
+          <span className='text-white'>Artist-Annuradha</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -100,7 +100,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
               className="block px-4 py-2 hover:text-accent font-medium border border-accent/50 rounded text-center hover:bg-accent/10"
             >
-              📬 Admin Messages
+              📬 Messages
             </Link>
           )}
           

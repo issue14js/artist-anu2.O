@@ -9,6 +9,7 @@ const Gallery = () => {
   const [artworks, setArtworks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
 
   const categories = ["All", "Traditional", "Education", "Painting", "Wall Art", "Learning", "Other"];
 
@@ -48,6 +49,8 @@ const Gallery = () => {
     }
   };
 
+  const displayedArtworks = showAll ? artworks : artworks.slice(0, 6);
+
   return (
     <div className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
@@ -84,7 +87,7 @@ const Gallery = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {artworks.map((art, index) => (
+           {displayedArtworks.map((art, index) => (
               <motion.div
                 key={art._id}
                 initial={{ opacity: 0, y: 20 }}
@@ -114,7 +117,16 @@ const Gallery = () => {
           </div>
         )}
         
-        <div className="text-center mt-12"></div>
+       <div className="text-center mt-12">
+  {artworks.length > 6 && (
+    <button
+      onClick={() => setShowAll(!showAll)}
+      className="px-6 py-3 bg-orange-600 text-white rounded-full font-semibold hover:bg-orange-700 transition"
+    >
+      {showAll ? "Show Less" : "See More"}
+    </button>
+  )}
+</div>
       </div>
     </div>
   );
