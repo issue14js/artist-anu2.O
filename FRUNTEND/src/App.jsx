@@ -6,7 +6,7 @@ import Hero from './Components/Hero';
 import About from './Components/About';
 import Gallery from './Components/Gallery';
 import Contact from './Components/Contact';
-import Footer from './components/Footer';
+import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Profile from './Components/Profile';
