@@ -3,6 +3,7 @@ const connectDB = require("./src/config/database");
 
 
 
+
 // Connect to database
 connectDB();
 

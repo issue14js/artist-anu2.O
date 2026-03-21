@@ -7,6 +7,8 @@ const profileRoutes = require("./routes/profile.route");
 const postRoutes = require("./routes/post.route");
 const adminRoutes = require("./routes/admin.route");
 const contactRoutes = require("./routes/contact.route");
+const dirname = require('dirname')
+
 
 
 const app = express();
@@ -14,7 +16,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: process.env.FRONTEND_URL || "https://artist-anuradha.vercel.app/",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, "../public/dist")));
+
 // Static files middleware for uploads
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
@@ -36,10 +40,14 @@ app.use("/api/posts", postRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/contact", contactRoutes);
 
+
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Artist App API" });
+  res.json({ message: "Welcome to Artist ANNURADHA App API" });
 });
 
+app.get("/path", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/dist/index.html"));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
