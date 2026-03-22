@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* Admin Link */}
           {isAdmin && (
             <Link 
-              to="/admin/messages"
+              to="/api/admin/messages"
               className="hover:text-accent text-sm transition-colors duration-300 px-3 py-1 rounded-full border  hover:bg-accent/10"
               title="Admin Messages"
             >

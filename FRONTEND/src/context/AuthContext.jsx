@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const endpoint = `/api/profile${userId}` 
+      const endpoint = `/api/profile/current/me` 
       const res = await axios.get(`${API_URL}${endpoint}`);
       return res.data.user;
     } catch (err) {

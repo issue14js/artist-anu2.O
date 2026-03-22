@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AdminPostUpload = () => {
   const { user } = useContext(AuthContext);
@@ -79,7 +79,7 @@ const AdminPostUpload = () => {
       data.append('category', formData.category);
       data.append('image', formData.image);
 
-      const response = await axios.post(`${API_URL}/posts/upload`, data, {
+      const response = await axios.post(`${API_URL}/api/posts/upload`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

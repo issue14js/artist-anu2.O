@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL ;
 
 const AdminMessages = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +37,7 @@ const AdminMessages = () => {
       if (searchQuery) queryString += `search=${searchQuery}&`;
 
       const response = await axios.get(
-        `${API_URL}/contact/messages?${queryString}limit=20`,
+        `${API_URL}/api/contact/messages?${queryString}limit=20`,
         { withCredentials: true }
       );
 
@@ -54,7 +54,7 @@ const AdminMessages = () => {
 
   const fetchUnreadCount = async () => {
     try {
-      const response = await axios.get(`${API_URL}/contact/unread-count`, {
+      const response = await axios.get(`${API_URL}/api/contact/unread-count`, {
         withCredentials: true,
       });
 
@@ -73,7 +73,7 @@ const AdminMessages = () => {
     // Mark as read if not already
     if (!msg.isRead) {
       try {
-        await axios.put(`${API_URL}/contact/messages/${msg._id}/read`, {}, {
+        await axios.put(`${API_URL}/api/contact/messages/${msg._id}/read`, {}, {
           withCredentials: true,
         });
         fetchUnreadCount();
@@ -92,7 +92,7 @@ const AdminMessages = () => {
     try {
       setReplyLoading(true);
       const response = await axios.put(
-        `${API_URL}/contact/messages/${selectedMessage._id}/reply`,
+        `${API_URL}/api/contact/messages/${selectedMessage._id}/reply`,
         { reply: replyText },
         { withCredentials: true }
       );
@@ -118,7 +118,7 @@ const AdminMessages = () => {
   const handleDeleteMessage = async (msgId) => {
     if (window.confirm('Are you sure you want to delete this message?')) {
       try {
-        const response = await axios.delete(`${API_URL}/contact/messages/${msgId}`, {
+        const response = await axios.delete(`${API_URL}/api/contact/messages/${msgId}`, {
           withCredentials: true,
         });
 

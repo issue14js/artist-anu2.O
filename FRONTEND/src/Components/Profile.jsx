@@ -6,7 +6,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import './styles/style.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL ;
 
 const Profile = () => {
   const { id } = useParams();
@@ -35,7 +35,7 @@ const Profile = () => {
   // Protect route - redirect if not logged in and trying to access own profile
   useEffect(() => {
     if (!id && !authUser) {
-      navigate('/login');
+      navigate('api/auth/login');
     }
   }, [id, authUser, navigate]);
 
@@ -46,7 +46,7 @@ const Profile = () => {
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const endpoint = id ? `/profile/${id}` : '/profile/current/me';
+      const endpoint = id ? `/api/profile/${id}` : '/api/profile/current/me';
       const res = await axios.get(`${API_URL}${endpoint}`, {
         withCredentials: true,
       });
@@ -89,7 +89,7 @@ const Profile = () => {
         experience: parseInt(formData.experience),
       };
 
-      const res = await axios.put(`${API_URL}/profile/update`, updateData, {
+      const res = await axios.put(`${API_URL}/api/profile/update`, updateData, {
         withCredentials: true,
       });
 

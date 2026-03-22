@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import "./styles/style.css";
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Gallery = () => {
   const [artworks, setArtworks] = useState([]);
@@ -21,7 +21,7 @@ const Gallery = () => {
     try {
       setLoading(true);
       const queryParam = selectedCategory === "All" ? "" : `?category=${selectedCategory}`;
-      const response = await axios.get(`${API_URL}/posts${queryParam}`);
+      const response = await axios.get(`${API_URL}/api/posts${queryParam}`);
 
       if (response.data.success && response.data.data.length > 0) {
         // Map backend posts to gallery format with proper image URL

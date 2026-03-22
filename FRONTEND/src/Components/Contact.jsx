@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL ;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +59,7 @@ const Contact = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post(`${API_URL}/contact/send`, formData);
+      const response = await axios.post(`${API_URL}/api/contact/messages`, formData);
 
       if (response.data.success) {
         setMessage({ type: 'success', text: 'Message sent successfully! We will get back to you soon.' });
