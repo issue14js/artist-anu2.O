@@ -99,10 +99,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getProfile = async (userId) => {
+    console.log(userId)
     setLoading(true);
     setError(null);
     try {
-      const endpoint = userId ? `/profile/${userId}` : '/profile/current/me';
+      const endpoint = `/api/profile${userId}` 
       const res = await axios.get(`${API_URL}${endpoint}`);
       return res.data.user;
     } catch (err) {
@@ -118,7 +119,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.put(`${API_URL}/profile/avatar`, { avatar });
+      const res = await axios.put(`${API_URL}/api/profile/avatar`, { avatar });
       setUser(res.data.user);
       return res.data;
     } catch (err) {
@@ -132,7 +133,7 @@ export const AuthProvider = ({ children }) => {
 
   const getAllUsers = async (search = '', specialization = '') => {
     try {
-      const res = await axios.get(`${API_URL}/profile/users/all`, {
+      const res = await axios.get(`${API_URL}/api/profile/users/all`, {
         params: { search, specialization }
       });
       return res.data.users;
